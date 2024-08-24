@@ -1,0 +1,154 @@
+#headerCanvas {
+  height: 200px; /* Ajuste cette valeur comme t'as besoin */
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #333;
+  color: #fff;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #444;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #444;
+  border: 1px solid #555;
+  border-radius: 8px;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-align: center;  /* Ajout de cette ligne pour centrer les titres */
+}
+
+h2_r {
+  font-size: 1.2em;
+  text-align: center;  /* Ajout de cette ligne pour centrer les titres */
+  color: white;
+  font-weight: bold;
+}
+
+h2_i {
+  font-size: 1em;
+  text-align: center;  /* Ajout de cette ligne pour centrer les titres */
+  font-style: italic;  /* Ajout de cette ligne pour mettre en italique */
+  color: grey;
+}
+
+
+pre {
+  overflow-x: auto;
+  background-color: #555;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+pre_j {
+  overflow-x: auto;
+  background-color: #555;
+  color: yellow;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+pre_2 {
+  overflow-x: auto;
+  background-color: #500;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50px;
+  text-align: center;
+}
+
+pre_3 {
+  overflow-x: auto;
+  background-color: #008000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+ul, ol {
+  margin-left: 20px;
+}
+
+a {
+  color: #50b3a2;
+}
+
+a:hover {
+  color: #ff6600;
+  transition: color 0.3s ease-in-out;
+}
+
+section:hover {
+  background-color: #000;  
+  transition: background-color 0.3s ease-in-out;
+}
+
+footer {
+  background-color: #444;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+}
+
+#dedication {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 600px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  color: #ff0000;
+}
+
+#headerCanvas {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background-color: #000;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.info-icon {
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+#poweredBy {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: #0078D7;
+  color: white;
+  padding: 10px;
+  z-index: 1000;
+  border-top-left-radius: 10px;
+  font-family: Roboto, sans-serif;
+}
