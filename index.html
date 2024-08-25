@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tutorial Palera1nBox on NanoPi Neo 1</title>
+<link rel="stylesheet" href="styles.css">
+<script src="p5.js"></script>
+<style>
+  body {display: flex; flex-direction: column; align-items: center; background-color: #000;}
+  #headerCanvas {position: relative; width: 100%; text-align: center; background-color: #000;}
+  canvas {position: absolute; top: 0; left: 0;}
+  #dedication {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 200px;  /* Increased margin at the top of the dedication */
+    margin-bottom: 20px;
+    background-color: rgb(0, 0, 0);  /* Black background */
+    padding: 10px; /* Added a bit of padding */
+    border-radius: 10px; /* Rounded corners */
+  }
+</style>
+<script>
+  let gouttes = [];
+  let img;
+  let entete;  // New variable for the header image entete.png
+
+  function preload() {
+    img = loadImage('https://media.idownloadblog.com/wp-content/uploads/2022/10/Palera1n-icon.png');
+    entete = loadImage('entete.png');  // Line added to load the header image entete.png
+  }
+
+  function setup() {
+    let canvas = createCanvas(windowWidth, 400);
+    canvas.parent('headerCanvas');
+    for (let i = 0; i < 100; i++) {
+      gouttes.push(new Goutte());
+    }
+  }
+  function draw() {
+    background(255);
+    for (let g of gouttes) {
+      g.fall();
+      g.show();
+    }
+    textSize(48);
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text("palera1nBox", width/2, 100);
+    textSize(24);
+    text("The jailbreak tool in your pocket", width/2, 140);
+    image(entete, width/2 - (entete.width/2.5)/2, 170, entete.width/2.5, entete.height/2.5);  // Modified line to center and further resize the image
+  }
+
+  class Goutte {
+    constructor() {
+      this.x = random(width);
+      this.y = random(-height, 0);
+      this.speed = random(2, 5);  /* Reduced speed */
+    }
+
+    fall() {
+      this.y = this.y + this.speed;
+      if (this.y > height) {
+        this.y = random(-200, -100);
+      }
+    }
+
+    show() {
+      image(img, this.x, this.y, img.width / 10, img.height / 10);
+    }
+  }
+
+  let hue = 0;
+  function changeColor() {
+    let textElement = document.getElementById("dedicationText");
+    hue = (hue + 1) % 360;
+    textElement.style.color = `hsl(${hue}, 100%, 50%)`;
+  }
+  setInterval(changeColor, 30);
+</script>
+<script>
+function toggleSection(id) {
+  var x = document.getElementById(id);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'fr', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+<div id='poweredBy' style='position: fixed; right: 0; bottom: 0; background-color: #0078D7; color: white; padding: 10px; z-index: 1000; border-top-left-radius: 10px; font-family: Roboto, sans-serif;'>
+<span class='info-icon' style='margin-right: 5px; font-size: 1.2em;'>&#x2139;</span> Powered by <b><a href='https://www.youtube.com/@s00r1gg8' style='color: white;' target="_blank">s00r1gg</a></b>
+</div>
+<div id="headerCanvas">
+</div>
+<main>
+<section id="dedication">
+  <p>
+    A big thank you to the developer of ra1nbox. Without his brilliant idea, this project would never have been born. The spirit of sharing and innovation continues to inspire and advance the community. Salute to the genius behind ra1nbox, you have lit the flame.
+  </p>
+<li><a href="https://ra1nbox.com/">ra1box project</a> checkra1n for NanoPi Neo</li>
+</section>
+<section id="intro">
+<h2>Introduction</h2>
+<p>Yo, welcome to this tutorial to transform your NanoPi into a Palera1n Box.</p>
+</section>
+<section id="software">
+<h2>Recommended Software</h2>
+<ul>
+<li><a href="https://www.putty.org/">Putty</a> for SSH connection (Windows)</li>
+<li><a href="https://www.balena.io/etcher/">Balena Etcher</a> for burning the SD card</li>
+<li><a href="https://winscp.net/">winSCP</a> for file transfers (Windows)</li>
+</ul>
+</section>
+<section id="download-armbian">
+<h2>Download Armbian</h2>
+<ul>
+<li><a href="https://www.armbian.com/nanopi-neo/">Armbian for NanoPi Neo 1</a></li>
+<p>Armbian JAMMY CLI for NanoPi Neo 1</p>
+<p>To download the latest version of Armbian JAMMY</p>
+<p>scroll down, in "Other supported variants"</p>
+</ul>
+</section>
+<section id="burn-image">
+<h2>Burn the Armbian Image</h2>
+<p>Use Balena Etcher to burn the "Armbian JAMMY CLI" image onto a micro SD card.</p>
+<li><a href="https://www.youtube.com/watch?v=U2mpVbk0ZOU">How to use Balena Etcher</a></li>
+</section>
+
+<section id="ssh-connection">
+<h2>SSH Connection</h2>
+<p>(*) to find the IP address of the NanoPi, I use the app (Network Analyzer) on my iPhone</p>
+<h2_i>in our example the IP address of the NanoPi is: 192.168.1.91</h2_i>
+<p>(*) to connect via SSH to your NanoPi.</p>
+<p>(option 1) Use the terminal (cmd) under Windows, and enter the command:</p>
+<pre><code>ssh root@192.168.1.91 (replace with the IP address of your NanoPi)</code></pre>
+<pre_3><code>the password (root) is: 1234</code></pre_3>
+<p>(option 2) Use Putty to connect via SSH to your NanoPi.</p>
+<li><a href="https://www.youtube.com/watch?v=4KGEwArI7x0">How to use Putty</a></li>
+</section>
+<section id="update-upgrade">
+<h2>Update</h2>
+<p>Now you are connected as root via SSH to your NanoPi</p>
+<p>start by running:</p>
+<pre><code>sudo apt-get update
+sudo apt-get upgrade</code></pre>
+<h2_i>confirm the questions with (Y)</h2_i>
+</section>
+
+<section id="install-deps">
+<h2>Install Dependencies</h2>
+<pre><code>sudo apt-get install i2c-tools git vim armbian-config python3-dev python3-pil python3-smbus python3-pip python3-serial</code></pre>
+</section>
+
+<section id="enable-i2c">
+<h2>Enable I2C0 and analog-codec</h2>
+<pre><code>sudo armbian-config</code></pre>
+<pre_3><code>System->Hardware->Enable (analog-codec) and (i2c0)</code></pre_3>
+<pre_2>exit armbian-config (Esc)</pre_2>
+<pre><code>sudo reboot</code></pre>
+</section>
+
+<section id="activate NanoHatOLED">
+<h2>Activate NanoHatOLED</h2>
+<ul>
+<p>Reconnect via SSH after the NanoPi reboot</p>
+<li><a href="https://wiki.friendlyelec.com/wiki/index.php/NanoHat_OLED">NanoHatOLED</a></li>
+<pre><code>git clone https://github.com/friendlyarm/NanoHatOLED.git
+cd NanoHatOLED
+sudo -H ./install.sh</code></pre>
+<pre_2>At the end of the installation, the NanoPi will reboot</pre_2>
+<P><pre_3>After the reboot, the NanoHat OLED screen works!</pre_3></p>
+</ul>
+</section>
+<!-- Install Libraries -->
+<section id="install-libs">
+<h2>Install Required Libraries</h2>
+<p>Reconnect via SSH after NanoPi reboots</p>
+<pre><code>sudo pip3 install --upgrade setuptools
+sudo pip3 install sh
+sudo pip3 install wheel
+sudo pip3 install psutil</code></pre>
+<h2_i>Ignore the following message:</h2_i>
+<pre_j>WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</pre_j>
+</section>
+
+<!-- Install palera1n Dependencies -->
+<section id="install-palera1n-deps">
+<h2>Install palera1n Dependencies</h2>
+<pre><code>sudo apt install libc6 libncurses5 libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libatk1.0-0 libgdk-pixbuf2.0-0 libglib2.0-0 libfontconfig1 libfreetype6 libgtk-3-0 libusb-1.0-0 libplist3 usbmuxd ideviceinstaller python3-imobiledevice libimobiledevice-utils python3-plist ifuse libusbmuxd-tools</code></pre>
+<h2_i>Confirm with (Y)</h2_i>
+</section>
+
+<!-- Install mplayer, irecovery, usbmuxd, etc. -->
+<section id="installer_mplayer">
+<h2>Install mplayer, irecovery, usbmuxd, etc.</h2>
+<p>Execute the following command:</p>
+<pre><code>sudo apt install mplayer usbmuxd libjpeg-dev usbmuxd</code></pre>
+<h2_i>Confirm with (Y)</h2_i>
+<p>First install more required dependencies and build tools:</p>
+<pre><code>sudo apt-get install pkg-config libplist-dev libreadline-dev libusb-1.0-0-dev build-essential checkinstall git autoconf automake libtool-bin</code></pre>
+<p>Install libplist</p>
+<pre><code>cd
+git clone https://github.com/libimobiledevice/libplist.git
+cd libplist
+./autogen.sh
+./configure
+make
+sudo make install</code></pre>
+<p>Install libimobiledevice-glue</p>
+<pre><code>cd
+git clone https://github.com/libimobiledevice/libimobiledevice-glue
+cd libimobiledevice-glue
+./autogen.sh
+./configure
+make
+sudo make install</code></pre>
+<p>Install libirecovery</p>
+<pre><code>cd
+git clone https://github.com/libimobiledevice/libirecovery
+cd libirecovery
+./autogen.sh
+./configure
+make
+sudo make install</code></pre>
+<p>Now install irecovery</p>
+<pre><code>sudo apt install irecovery</code></pre>
+</section>
+
+<!-- Install luma.oled -->
+<section id="lumaOLED">
+<h2>Install luma.oled</h2>
+<p>Enter the following command:</p>
+<pre><code>pip3 install luma.oled</code></pre>
+<h2_i>Ignore the following message:</h2_i>
+<pre_j>WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</pre_j>
+</section>
+
+<!-- Uninstall Pillow 10 -->
+<section id="pillow">
+<h2>Uninstall Pillow 10</h2>
+<p>Enter the following command:</p>
+<pre><code>pip3 uninstall pillow</code></pre>
+</section>
+
+<!-- Download Files -->
+<section id="download-files">
+  <h2>Télécharge les Fichiers</h2>
+  <li><a href="https://github.com/s00r1/palera1nbox/releases/tag/v2.0.0">fichiers pour NanoPi Neo 1</a></li>
+<h2_i>Don't download the wrong version!</h2_i>
+<li><div class="coming-soon">
+    <span class="text-barré">Files for NanoPi Neo 2 Black</span>
+    <span class="overlay">Coming Soon</span>
+</div></li>
+<p>Unzip the files into a new folder</p>
+<p>Place it on the desktop of the PC</p>
+</section>
+
+<!-- File Transfer with WinSCP -->
+<section id="winscp">
+<h2>Transfer Files with WinSCP</h2>
+<p>Download <a href="https://winscp.net/eng/download.php">WinSCP</a> and use it to transfer the modified Python files.</p>
+<p>(*) Run WinSCP and use the following settings:</p>
+<p><h2_i>File protocol: SFTP</h2_i></p>
+<p><h2_i>Host name: 192.168.1.91 (replace with the IP address of your NanoPi)</h2_i></p>
+<p><h2_i>Port number: 22</h2_i></p>
+<p><h2_i>Username: root</h2_i></p>
+<p><h2_i>Password: (the root password of your NanoPi)</h2_i></p>
+<p><h2_i>Click on (Connect) then validate the key</h2_i></p>
+<p><h2_i>Now you have connected WinSCP to the NanoPi</h2_i></p>
+<pre_3c>palera1n Box V 2.0</pre_3c>
+<p>(*) transfer all files</p>
+<p>to the following NanoPi folder:</p>
+<pre_3><code>/root/NanoHatOLED/Bakebit/Software/Python/</code></pre_3>
+<h2_i>confirm and replace existing files</h2_2>
+</section>
+
+<!-- Give Permissions and Reboot -->
+<section id="chmod">
+<h2>Permissions and Reboot</h2>
+<p>Enter the following command:</p>
+<pre><code>chmod +x /root/NanoHatOLED/BakeBit/Software/Python/palera1n
+chmod +x /root/NanoHatOLED/BakeBit/Software/Python/checkra1n
+chmod +x /usr/bin/irecovery
+sudo reboot</code></pre>
+</section>
+
+<section id="end">
+<h2>Merci s00r1</h2>
+<p>i will try to answer your questions on youtube or reddit</p>
+<li><a href="https://www.reddit.com/r/jailbreak/s/jHpKbJJOgw">more informations on Reddit</a></li>
+</section>
+
+</main>
+
+<div id="sfc7s4l28dzlu1qxc9wsh21nhcap9lrgt1m"></div>
+<script type="text/javascript" src="https://counter8.optistats.ovh/private/counter.js?c=7s4l28dzlu1qxc9wsh21nhcap9lrgt1m&down=async" async></script>
+
+<footer>
+<p>© 2023, s00r1</p>
+<p><a href="index_fr.html">Version Française</a></p>
+
+</footer>
+</body>
+</html>
