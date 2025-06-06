@@ -138,11 +138,11 @@ function googleTranslateElementInit() {
 <section id="ssh-connection">
 <h2>SSH Connection</h2>
 <p>(*) to find the IP address of the NanoPi, I use the app (Network Analyzer) on my iPhone</p>
-<h2_i>in our example the IP address of the NanoPi is: 192.168.1.91</h2_i>
+<h2 class="h2_i">in our example the IP address of the NanoPi is: 192.168.1.91</h2>
 <p>(*) to connect via SSH to your NanoPi.</p>
 <p>(option 1) Use the terminal (cmd) under Windows, and enter the command:</p>
 <pre><code>ssh root@192.168.1.91 (replace with the IP address of your NanoPi)</code></pre>
-<pre_3><code>the password (root) is: 1234</code></pre_3>
+<pre class="pre_3"><code>the password (root) is: 1234</code></pre>
 <p>(option 2) Use Putty to connect via SSH to your NanoPi.</p>
 <li><a href="https://www.youtube.com/watch?v=4KGEwArI7x0">How to use Putty</a></li>
 </section>
@@ -152,7 +152,7 @@ function googleTranslateElementInit() {
 <p>start by running:</p>
 <pre><code>sudo apt-get update
 sudo apt-get upgrade</code></pre>
-<h2_i>confirm the questions with (Y)</h2_i>
+<h2 class="h2_i">confirm the questions with (Y)</h2>
 </section>
 
 <section id="install-deps">
@@ -163,8 +163,8 @@ sudo apt-get upgrade</code></pre>
 <section id="enable-i2c">
 <h2>Enable I2C0 and analog-codec</h2>
 <pre><code>sudo armbian-config</code></pre>
-<pre_3><code>System->Hardware->Enable (analog-codec) and (i2c0)</code></pre_3>
-<pre_2>exit armbian-config (Esc)</pre_2>
+<pre class="pre_3"><code>System->Hardware->Enable (analog-codec) and (i2c0)</code></pre>
+<pre class="pre_2">exit armbian-config (Esc)</pre>
 <pre><code>sudo reboot</code></pre>
 </section>
 
@@ -176,8 +176,8 @@ sudo apt-get upgrade</code></pre>
 <pre><code>git clone https://github.com/friendlyarm/NanoHatOLED.git
 cd NanoHatOLED
 sudo -H ./install.sh</code></pre>
-<pre_2>At the end of the installation, the NanoPi will reboot</pre_2>
-<P><pre_3>After the reboot, the NanoHat OLED screen works!</pre_3></p>
+<pre class="pre_2">At the end of the installation, the NanoPi will reboot</pre>
+<P><pre class="pre_3">After the reboot, the NanoHat OLED screen works!</pre></p>
 </ul>
 </section>
 <!-- Install Libraries -->
@@ -188,15 +188,15 @@ sudo -H ./install.sh</code></pre>
 sudo pip3 install sh
 sudo pip3 install wheel
 sudo pip3 install psutil</code></pre>
-<h2_i>Ignore the following message:</h2_i>
-<pre_j>WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</pre_j>
+<h2 class="h2_i">Ignore the following message:</h2>
+<pre class="pre_j">WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</pre>
 </section>
 
 <!-- Install palera1n Dependencies -->
 <section id="install-palera1n-deps">
 <h2>Install palera1n Dependencies</h2>
 <pre><code>sudo apt install libc6 libncurses5 libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libatk1.0-0 libgdk-pixbuf2.0-0 libglib2.0-0 libfontconfig1 libfreetype6 libgtk-3-0 libusb-1.0-0 libplist3 usbmuxd ideviceinstaller python3-imobiledevice libimobiledevice-utils python3-plist ifuse libusbmuxd-tools</code></pre>
-<h2_i>Confirm with (Y)</h2_i>
+<h2 class="h2_i">Confirm with (Y)</h2>
 </section>
 
 <!-- Install mplayer, irecovery, usbmuxd, etc. -->
@@ -204,7 +204,7 @@ sudo pip3 install psutil</code></pre>
 <h2>Install mplayer, irecovery, usbmuxd, etc.</h2>
 <p>Execute the following command:</p>
 <pre><code>sudo apt install mplayer usbmuxd libjpeg-dev usbmuxd</code></pre>
-<h2_i>Confirm with (Y)</h2_i>
+<h2 class="h2_i">Confirm with (Y)</h2>
 <p>First install more required dependencies and build tools:</p>
 <pre><code>sudo apt-get install pkg-config libplist-dev libreadline-dev libusb-1.0-0-dev build-essential checkinstall git autoconf automake libtool-bin</code></pre>
 <p>Install libplist</p>
@@ -240,8 +240,8 @@ sudo make install</code></pre>
 <h2>Install luma.oled</h2>
 <p>Enter the following command:</p>
 <pre><code>pip3 install luma.oled</code></pre>
-<h2_i>Ignore the following message:</h2_i>
-<pre_j>WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</pre_j>
+<h2 class="h2_i">Ignore the following message:</h2>
+<pre class="pre_j">WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</pre>
 </section>
 
 <!-- Uninstall Pillow 10 -->
@@ -255,7 +255,7 @@ sudo make install</code></pre>
 <section id="download-files">
   <h2>Télécharge les Fichiers</h2>
   <li><a href="https://github.com/s00r1/palera1nbox/releases/tag/v2.0.0">fichiers pour NanoPi Neo 1</a></li>
-<h2_i>Don't download the wrong version!</h2_i>
+<h2 class="h2_i">Don't download the wrong version!</h2>
 <li><div class="coming-soon">
     <span class="text-barré">Files for NanoPi Neo 2 Black</span>
     <span class="overlay">Coming Soon</span>
@@ -269,18 +269,18 @@ sudo make install</code></pre>
 <h2>Transfer Files with WinSCP</h2>
 <p>Download <a href="https://winscp.net/eng/download.php">WinSCP</a> and use it to transfer the modified Python files.</p>
 <p>(*) Run WinSCP and use the following settings:</p>
-<p><h2_i>File protocol: SFTP</h2_i></p>
-<p><h2_i>Host name: 192.168.1.91 (replace with the IP address of your NanoPi)</h2_i></p>
-<p><h2_i>Port number: 22</h2_i></p>
-<p><h2_i>Username: root</h2_i></p>
-<p><h2_i>Password: (the root password of your NanoPi)</h2_i></p>
-<p><h2_i>Click on (Connect) then validate the key</h2_i></p>
-<p><h2_i>Now you have connected WinSCP to the NanoPi</h2_i></p>
-<pre_3c>palera1n Box V 2.0</pre_3c>
+<p><h2 class="h2_i">File protocol: SFTP</h2></p>
+<p><h2 class="h2_i">Host name: 192.168.1.91 (replace with the IP address of your NanoPi)</h2></p>
+<p><h2 class="h2_i">Port number: 22</h2></p>
+<p><h2 class="h2_i">Username: root</h2></p>
+<p><h2 class="h2_i">Password: (the root password of your NanoPi)</h2></p>
+<p><h2 class="h2_i">Click on (Connect) then validate the key</h2></p>
+<p><h2 class="h2_i">Now you have connected WinSCP to the NanoPi</h2></p>
+<pre class="pre_3c">palera1n Box V 2.0</pre>
 <p>(*) transfer all files</p>
 <p>to the following NanoPi folder:</p>
-<pre_3><code>/root/NanoHatOLED/Bakebit/Software/Python/</code></pre_3>
-<h2_i>confirm and replace existing files</h2_2>
+<pre class="pre_3"><code>/root/NanoHatOLED/Bakebit/Software/Python/</code></pre>
+<h2 class="h2_i">confirm and replace existing files</h2>
 </section>
 
 <!-- Give Permissions and Reboot -->

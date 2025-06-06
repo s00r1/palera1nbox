@@ -37,14 +37,14 @@ h2 {
   text-align: center;  /* Ajout de cette ligne pour centrer les titres */
 }
 
-h2_r {
+.h2_r {
   font-size: 1.2em;
   text-align: center;  /* Ajout de cette ligne pour centrer les titres */
   color: white;
   font-weight: bold;
 }
 
-h2_i {
+.h2_i {
   font-size: 1em;
   text-align: center;  /* Ajout de cette ligne pour centrer les titres */
   font-style: italic;  /* Ajout de cette ligne pour mettre en italique */
@@ -60,7 +60,7 @@ pre {
   border-radius: 5px;
 }
 
-pre_j {
+.pre_j {
   overflow-x: auto;
   background-color: #555;
   color: yellow;
@@ -69,7 +69,7 @@ pre_j {
   font-size: 0.8em;
 }
 
-pre_2 {
+.pre_2 {
   overflow-x: auto;
   background-color: #500;
   color: #fff;
@@ -78,7 +78,16 @@ pre_2 {
   text-align: center;
 }
 
-pre_3 {
+.pre_3 {
+  overflow-x: auto;
+  background-color: #008000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.pre_3c {
   overflow-x: auto;
   background-color: #008000;
   color: #fff;
