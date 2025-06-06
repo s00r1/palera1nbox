@@ -161,3 +161,26 @@ canvas {
   border-top-left-radius: 10px;
   font-family: Roboto, sans-serif;
 }
+
+/* Coming Soon block styles */
+.coming-soon {
+  position: relative;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.text-barré {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-weight: bold;
+}
