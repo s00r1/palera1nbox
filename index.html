@@ -88,12 +88,12 @@ function toggleSection(id) {
   }
 }
 </script>
-<script type="text/javascript">
+<script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 <div id='poweredBy' style='position: fixed; right: 0; bottom: 0; background-color: #0078D7; color: white; padding: 10px; z-index: 1000; border-top-left-radius: 10px; font-family: Roboto, sans-serif;'>
@@ -103,10 +103,13 @@ function googleTranslateElementInit() {
 </div>
 <main>
 <section id="dedication">
+  <h2>Dedication</h2>
   <p>
     A big thank you to the developer of ra1nbox. Without his brilliant idea, this project would never have been born. The spirit of sharing and innovation continues to inspire and advance the community. Salute to the genius behind ra1nbox, you have lit the flame.
   </p>
-<li><a href="https://ra1nbox.com/">ra1box project</a> checkra1n for NanoPi Neo</li>
+  <ul>
+    <li><a href="https://ra1nbox.com/">ra1box project</a> checkra1n for NanoPi Neo</li>
+  </ul>
 </section>
 <section id="intro">
 <h2>Introduction</h2>
@@ -124,15 +127,17 @@ function googleTranslateElementInit() {
 <h2>Download Armbian</h2>
 <ul>
 <li><a href="https://www.armbian.com/nanopi-neo/">Armbian for NanoPi Neo 1</a></li>
+</ul>
 <p>Armbian JAMMY CLI for NanoPi Neo 1</p>
 <p>To download the latest version of Armbian JAMMY</p>
 <p>scroll down, in "Other supported variants"</p>
-</ul>
 </section>
 <section id="burn-image">
 <h2>Burn the Armbian Image</h2>
 <p>Use Balena Etcher to burn the "Armbian JAMMY CLI" image onto a micro SD card.</p>
+<ul>
 <li><a href="https://www.youtube.com/watch?v=U2mpVbk0ZOU">How to use Balena Etcher</a></li>
+</ul>
 </section>
 
 <section id="ssh-connection">
@@ -144,7 +149,9 @@ function googleTranslateElementInit() {
 <pre><code>ssh root@192.168.1.91 (replace with the IP address of your NanoPi)</code></pre>
 <pre class="pre_3"><code>the password (root) is: 1234</code></pre>
 <p>(option 2) Use Putty to connect via SSH to your NanoPi.</p>
-<li><a href="https://www.youtube.com/watch?v=4KGEwArI7x0">How to use Putty</a></li>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=4KGEwArI7x0">How to use Putty</a></li>
+</ul>
 </section>
 <section id="update-upgrade">
 <h2>Update</h2>
@@ -168,17 +175,17 @@ sudo apt-get upgrade</code></pre>
 <pre><code>sudo reboot</code></pre>
 </section>
 
-<section id="activate NanoHatOLED">
+<section id="activate-nanohatoled">
 <h2>Activate NanoHatOLED</h2>
-<ul>
 <p>Reconnect via SSH after the NanoPi reboot</p>
-<li><a href="https://wiki.friendlyelec.com/wiki/index.php/NanoHat_OLED">NanoHatOLED</a></li>
+<ul>
+  <li><a href="https://wiki.friendlyelec.com/wiki/index.php/NanoHat_OLED">NanoHatOLED</a></li>
+</ul>
 <pre><code>git clone https://github.com/friendlyarm/NanoHatOLED.git
 cd NanoHatOLED
 sudo -H ./install.sh</code></pre>
 <pre class="pre_2">At the end of the installation, the NanoPi will reboot</pre>
-<P><pre class="pre_3">After the reboot, the NanoHat OLED screen works!</pre></p>
-</ul>
+<pre class="pre_3">After the reboot, the NanoHat OLED screen works!</pre>
 </section>
 <!-- Install Libraries -->
 <section id="install-libs">
@@ -254,14 +261,18 @@ sudo make install</code></pre>
 <!-- Download Files -->
 <section id="download-files">
   <h2>Télécharge les Fichiers</h2>
-  <li><a href="https://github.com/s00r1/palera1nbox/releases/tag/v2.0.0">fichiers pour NanoPi Neo 1</a></li>
-<h2 class="h2_i">Don't download the wrong version!</h2>
-<li><div class="coming-soon">
-    <span class="text-barré">Files for NanoPi Neo 2 Black</span>
-    <span class="overlay">Coming Soon</span>
-</div></li>
-<p>Unzip the files into a new folder</p>
-<p>Place it on the desktop of the PC</p>
+  <ul>
+    <li><a href="https://github.com/s00r1/palera1nbox/releases/tag/v2.0.0">fichiers pour NanoPi Neo 1</a></li>
+    <li>
+      <div class="coming-soon">
+        <span class="text-barré">Files for NanoPi Neo 2 Black</span>
+        <span class="overlay">Coming Soon</span>
+      </div>
+    </li>
+  </ul>
+  <h2 class="h2_i">Don't download the wrong version!</h2>
+  <p>Unzip the files into a new folder</p>
+  <p>Place it on the desktop of the PC</p>
 </section>
 
 <!-- File Transfer with WinSCP -->
@@ -269,13 +280,13 @@ sudo make install</code></pre>
 <h2>Transfer Files with WinSCP</h2>
 <p>Download <a href="https://winscp.net/eng/download.php">WinSCP</a> and use it to transfer the modified Python files.</p>
 <p>(*) Run WinSCP and use the following settings:</p>
-<p><h2 class="h2_i">File protocol: SFTP</h2></p>
-<p><h2 class="h2_i">Host name: 192.168.1.91 (replace with the IP address of your NanoPi)</h2></p>
-<p><h2 class="h2_i">Port number: 22</h2></p>
-<p><h2 class="h2_i">Username: root</h2></p>
-<p><h2 class="h2_i">Password: (the root password of your NanoPi)</h2></p>
-<p><h2 class="h2_i">Click on (Connect) then validate the key</h2></p>
-<p><h2 class="h2_i">Now you have connected WinSCP to the NanoPi</h2></p>
+<h2 class="h2_i">File protocol: SFTP</h2>
+<h2 class="h2_i">Host name: 192.168.1.91 (replace with the IP address of your NanoPi)</h2>
+<h2 class="h2_i">Port number: 22</h2>
+<h2 class="h2_i">Username: root</h2>
+<h2 class="h2_i">Password: (the root password of your NanoPi)</h2>
+<h2 class="h2_i">Click on (Connect) then validate the key</h2>
+<h2 class="h2_i">Now you have connected WinSCP to the NanoPi</h2>
 <pre class="pre_3c">palera1n Box V 2.0</pre>
 <p>(*) transfer all files</p>
 <p>to the following NanoPi folder:</p>
@@ -296,13 +307,15 @@ sudo reboot</code></pre>
 <section id="end">
 <h2>Merci s00r1</h2>
 <p>i will try to answer your questions on youtube or reddit</p>
-<li><a href="https://www.reddit.com/r/jailbreak/s/jHpKbJJOgw">more informations on Reddit</a></li>
+<ul>
+  <li><a href="https://www.reddit.com/r/jailbreak/s/jHpKbJJOgw">more informations on Reddit</a></li>
+</ul>
 </section>
 
 </main>
 
 <div id="sfc7s4l28dzlu1qxc9wsh21nhcap9lrgt1m"></div>
-<script type="text/javascript" src="https://counter8.optistats.ovh/private/counter.js?c=7s4l28dzlu1qxc9wsh21nhcap9lrgt1m&down=async" async></script>
+<script src="https://counter8.optistats.ovh/private/counter.js?c=7s4l28dzlu1qxc9wsh21nhcap9lrgt1m&down=async" async></script>
 
 <footer>
 <p>© 2023, s00r1</p>
