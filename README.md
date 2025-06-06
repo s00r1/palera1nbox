@@ -3,7 +3,7 @@
 This repository hosts the tutorial and resources for palera1nbox v2.0.0.
 
 ## Installation
-1. Download `palera1nbox.zip` or your desired release from the [Releases](https://github.com/some_repo/releases) page.
+1. Download `palera1nbox.zip` or your desired release from the [Releases](https://github.com/s00r1/palera1nbox/releases) page.
 2. Extract the archive to a directory of your choice.
 3. Open `index.html` in your preferred web browser. An internet connection is required since p5.js is loaded from a CDN.
 
